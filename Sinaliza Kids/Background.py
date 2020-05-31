@@ -1,9 +1,10 @@
 import pygame
 pygame.init()
-class Background(pygame.sprite.Sprite):
+
+class BG_JOGO(pygame.sprite.Sprite):
     def __init__(self):
-        super(Background, self).__init__()
-        #adicionar todas as imagens ao conjunto de sprites
+        super(BG_JOGO, self).__init__()
+        #Adicionando as imagens ao conjunto de sprites
         self.images = []
         self.images.append(pygame.image.load('IMG/loop bg/loop.01.png'))
         self.images.append(pygame.image.load('IMG/loop bg/loop.02.png'))
@@ -39,24 +40,38 @@ class Background(pygame.sprite.Sprite):
         self.images.append(pygame.image.load('IMG/loop bg/loop.32.png'))
         self.images.append(pygame.image.load('IMG/loop bg/loop.33.png'))
 
-        #index value para obter a imagem da matriz
-        #inicialmente é 0 
+        #Definindo o Index com valor 0
         self.index = 0
 
-        #agora a imagem que exibiremos será o índice da matriz de imagens 
+        #Definindo o valor Index como a posição da lista que será exibida na tela
+        #Inicialmente será exibida na tela a imagem de posição 0 da lista
         self.image = self.images[self.index]
 
-        #criando um ret na posição x, y (5,5) do tamanho (150,198), que é o tamanho do sprite 
+        #criando um ret na posição x, y (0,0) do tamanho (1000, 600), que é o tamanho do sprite
+        #Não sei ainda a utilidade de usar a função rect 
         self.rect = pygame.Rect(0, 0, 1000, 600)
 
     def update(self):
-        #quando o método de atualização for chamado, incrementaremos o índice
+        #Definindo que a cada repedição while, o comando update adicione +1 ao valor do Index
         self.index += 1
 
-        #se o índice for maior que o total de imagens
+        #Se o valor do Index for maior que o total de imagens
         if self.index >= len(self.images):
-            #faremos o índice para 0 novamente
+            #Faremos o Index retornar para o valor 0 novamente
             self.index = 0
         
-        #finalmente atualizaremos a imagem que será exibida
+        #Atualizando a posição da lista com o novo valor do Index
+        #Isso automaticamente mudará a imagem que será exibida, criando assim o loop
         self.image = self.images[self.index]
+
+
+
+class BG_INICIO(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.BGI = pygame.image.load('IMG/bg_inicio.png')
+
+    def mostrar(self, superficie):
+        superficie.blit(self.BGI, (0,0))
+
+   

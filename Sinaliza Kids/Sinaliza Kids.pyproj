@@ -25,7 +25,16 @@
       <SubType>Code</SubType>
       <Publish>False</Publish>
     </Compile>
+    <Compile Include="Botoes.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Car.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="creditos.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="jogo.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Sinaliza_Kids.py" />
